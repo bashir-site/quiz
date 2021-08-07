@@ -1,0 +1,58 @@
+{% extends 'student/studentbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+<br><br>
+<div class="container my-4">
+    <div class="jumbotron">
+
+	      <h3 class="text-info text-center">Перед тем, как начать экзамен, вот правила</h3>
+
+        <div class="row">
+
+            <div class="card border-info mx-4 my-4">
+                <div class="card-body text-info">
+
+                    <h4 class="card-title">Детали Экзамена :</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                            <li>Название Экзамена : {{course.course_name}}</li>
+                            <li>Всего Вопросов : {{total_questions}}</li>
+                            <li>Всего Баллов : {{total_marks}}</li>
+                        </ul>
+                    <p></p>
+
+
+
+                    <h4 class="card-title">Правила :</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                            <li>Все вопросы являются вопросами с несколькими вариантами ответов.</li>
+                            <li><span class="text-danger">Только один выбор правильный.</span></li>
+                            <li>Каждый вопрос имеет разные баллы 
+                            </li>
+                
+                            <li>Постарайтесь ответить как можно быстрее.</li>
+                            <li>Если вы нажмете «Обновить» или вернетесь на предыдущую страницу, вам будет задан новый вопрос, и вопрос, на котором вы были, будет засчитан как попытка.</li>
+                            <li>Вопросы отображаются для каждого пользователя случайным образом.</li>
+                            <li>Вам сообщат ваши баллы сразу после того, как вы отправите ответ.</li>
+                        </ul>
+                    <p></p>
+                    <a href="{% url 'start-exam' course.id  %}" class="btn btn-info">Давайте Начнем</a>
+                </div>  
+                <div class="card-footer">Удачи!</div>  
+            </div>  
+        </div>  
+
+    </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}
